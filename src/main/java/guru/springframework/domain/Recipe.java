@@ -8,25 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import java.io.Serializable;
 import java.util.Set;
 
 
 @Entity
-public class Recipe {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Recipe extends BaseEntity implements Serializable {
 
     private String description;
     private Integer prepTime;
-    private Integer cookTiem;
+    private Integer cookTime;
     private Integer servings;
     private String source;
     private String url;
@@ -66,12 +62,12 @@ public class Recipe {
         this.prepTime = prepTime;
     }
 
-    public Integer getCookTiem() {
-        return cookTiem;
+    public Integer getCookTime() {
+        return cookTime;
     }
 
-    public void setCookTiem(Integer cookTiem) {
-        this.cookTiem = cookTiem;
+    public void setCookTime(Integer cookTiem) {
+        this.cookTime = cookTiem;
     }
 
     public Integer getServings() {
@@ -120,14 +116,6 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Set<Ingredient> getIngredients() {

@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Recipe Home</title>
+    <style>
+        body{
+            background-color: cadetblue;
+        }
+        table, th, td {
+            border: 1px solid;
+        }
+    </style>
 </head>
 <body>
-<h1>My Recipes!</h1>
+    <h2 th:text="'List of Recipes'">List of Recipes...</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Preparation Time</th>
+                <th>Cook Time</th>
+                <th>Servings</th>
+                <th>Source</th>
+                <th>Ingredients</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="recipe: ${recipes}">
+                <td th:text="${recipe?.id}">null</td>
+                <td th:text="${recipe?.description}">null</td>
+                <td th:text="${recipe?.prepTime}">null</td>
+                <td th:text="${recipe?.cookTime}">null</td>
+                <td th:text="${recipe?.servings}">null</td>
+                <td th:text="${recipe?.source}">null</td>
+                <td><a th:href="${recipe?.url}">Show Ingredients</a></td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
