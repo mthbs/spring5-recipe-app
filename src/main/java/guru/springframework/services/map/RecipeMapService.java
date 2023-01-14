@@ -4,10 +4,10 @@ import guru.springframework.domain.Recipe;
 import guru.springframework.domain.UnitOfMeasure;
 import guru.springframework.services.RecipeService;
 import guru.springframework.services.UnitOfMeasureService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
 
 @Service
 public class RecipeMapService extends AbstractMapService<Recipe,Long> implements RecipeService {
