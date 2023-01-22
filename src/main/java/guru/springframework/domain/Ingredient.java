@@ -1,57 +1,45 @@
 package guru.springframework.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+/**
+ * Created by jt on 6/13/17.
+ */
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
-public class Ingredient extends BaseEntity implements Serializable {
+public class Ingredient {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String description;
     private BigDecimal amount;
-
-    @ManyToOne
-    private Recipe recipe;
 
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
 
-    public String getDescription() {
-        return description;
+    @ManyToOne
+    private Recipe recipe;
+
+    public Ingredient() {
     }
 
-    public void setDescription(String description) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
         this.description = description;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
         this.amount = amount;
+        this.uom = uom;
     }
 
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
         this.recipe = recipe;
     }
 
-    public UnitOfMeasure getUom() {
-        return uom;
-    }
-
-    public void setUom(UnitOfMeasure uom) {
-        this.uom = uom;
-    }
 }

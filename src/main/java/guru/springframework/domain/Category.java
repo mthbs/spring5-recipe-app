@@ -2,25 +2,21 @@ package guru.springframework.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * Created by jt on 6/13/17.
+ */
 @Data
+@EqualsAndHashCode(exclude = {"recipes"})
 @Entity
-public class Category implements Serializable {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
     private String description;
 
     @ManyToMany(mappedBy = "categories")

@@ -1,23 +1,21 @@
 package guru.springframework.domain;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.Serializable;
 
-
+/**
+ * Created by jt on 6/13/17.
+ */
+@Data
 @Entity
-public class UnitOfMeasure extends BaseEntity implements Serializable {
+public class UnitOfMeasure {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String description;
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
