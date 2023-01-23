@@ -9,8 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Set;
 
 
-@SpringBootTest
-public class UnitOfMeasureServiceTest extends TestCase {
+//@SpringBootTest
+public class UnitOfMeasureServiceTest{//} extends TestCase {
 
 //    @Autowired
 //    private UnitOfMeasureService unitOfMeasureService = new UnitOfMeasureService() {

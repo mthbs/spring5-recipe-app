@@ -12,7 +12,7 @@ import javax.persistence.Id;
  */
 @Data
 @Entity
-public class UnitOfMeasure {
+public class UnitOfMeasure extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

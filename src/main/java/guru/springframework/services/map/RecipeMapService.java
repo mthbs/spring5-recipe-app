@@ -36,4 +36,9 @@ public class RecipeMapService extends AbstractMapService<Recipe,Long> implements
     public Recipe findById(Long id) {
         return super.findById(id);
     }
+
+    @Override
+    public Set<Recipe> getRecipes() {
+        return null;
+    }
 }
